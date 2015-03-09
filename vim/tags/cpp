@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+__anon1::tags	cpp_src/autoload/omni/cpp/items.vim	/^                " In this case we need the tags (the patched version)$/;"	f	union:__anon1	access:public	signature:(the patched version)
+classes	cpp_src/doc/omnicppcomplete.txt	/^        * Complete namespaces, classes, structs and unions$/;"	v
+debug	cpp_src/autoload/omni/common/debug.vim	/^" Start debug, clear the debug file$/;"	v
+enums	cpp_src/autoload/omni/cpp/complete.vim	/^" class, struct, union, and enums, typedefs$/;"	v	typeref:union:and
+expIgnoreComments	cpp_src/autoload/omni/cpp/utils.vim	/^"let omni#cpp#utils#expIgnoreComments = 'match(synIDattr(synID(line("."), col("."), 1), "name"), '\\CcComment')!=-1'$/;"	v
+including	cpp_src/autoload/omni/cpp/complete.vim	/^    " Locate the start of the item, including ".", "->" and "[...]".$/;"	v
+keyword	cpp_src/autoload/omni/cpp/tokenizer.vim	/^    " The regexp to find a token, a token is a keyword, word or$/;"	v
+kind	cpp_src/autoload/omni/cpp/items.vim	/^"   kind = itemVariable|itemCast|itemCppCast|itemTemplate|itemFunction|itemUnknown|itemThis|itemScope$/;"	v
+mode	cpp_src/doc/omnicppcomplete.txt	/^language. In a C++ file, while in insert mode, you can use CTRL-X CTRL-O to:$/;"	v
+num1	cpp_src/autoload/omni/common/utils.vim	/^    let num1 = eval(a:i1)$/;"	v
+reCComment	cpp_src/autoload/omni/cpp/tokenizer.vim	/^let s:reCComment = '\\\/\\*\\|\\*\\\/'$/;"	v
+szCodeWithoutComments	cpp_src/autoload/omni/cpp/namespaces.vim	/^            let szCodeWithoutComments = substitute(omni#cpp#utils#GetCode(startPos, endPos)[:-2], '^[;{}]', '', 'g')$/;"	v
+tags	cpp_src/autoload/omni/cpp/items.vim	/^                " In this case we need the tags (the patched version)$/;"	f	union:__anon1	access:public	signature:(the patched version)

@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/me/home/stefan/.kde/share/config'
+let g:netrw_dirhist_2='/me/home/stefan/opencv'
+let g:netrw_dirhist_3='/me/home'
+let g:netrw_dirhist_4='/me/home/stefan/sketchbook/sketch_dec01a'
+let g:netrw_dirhist_5='/me/home/stefan/gcc/gcc-4.7.2/libstdc++-v3/testsuite/25_algorithms/headers/algorithm'
+let g:netrw_dirhist_6='/me/data/Programming/Projects/Tasks/C++/borovnice'

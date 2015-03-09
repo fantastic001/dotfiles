@@ -1,0 +1,36 @@
+!*background: !6b6b6b
+*background: black
+*foreground: gray
+*cursorBlink: false
+*fullCursor: true
+*visualBell: true
+
+URxvt.scrollBar: false
+URxvt.internalBorder: 2
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+
+URxvt.font: xft:Dejavu sans mono:12
+!URxvt.font:xft:droid sansmono:size=11
+!URxvt.perl-ext-common: default,matcher
+!URxvt.urlLauncher: /usr/bin/chromium
+!URxvt.matcher.button: 1
+
+
+!! teh transparency stuff
+URxvt.inheritPixmap: true
+URxvt.tintColor: white
+URxvt.shading: 100
+URxvt.transparent: true
+URxvt.depth:32
+!URxvt.background: rgba:0000/0000/0000/aazz
+
+! Disable beep in urxvt 
+URxvt.urgentOnBell: true
+URxvt.visualBell: false
+
+!*color0: Black
+!*color1: !939393
+!*color2: !35d047

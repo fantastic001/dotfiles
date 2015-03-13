@@ -1,0 +1,26 @@
+"urxvt" 
+   Mod1 + t
+
+"urxvt -e su" 
+   Mod1 + Shift + t 
+
+"urxvt -e alsamixer" 
+   Mod1 + Control + m
+
+"urxvt -e ranger /data/Documents/Uputstva"
+   Mod1 + Control + u
+
+"urxvt -e ranger /data/ ~/"
+   Mod1 + Control + f
+
+"firefox http://translate.google.com/#en\|sr\|" 
+   Mod1 + Control + g
+
+"/home/bin/print-screen"
+   Mod1 + Control + s
+
+"amixer set Capture toggle"
+  Control + Shift + n
+
+"amixer set Master toggle"
+  Control + Shift + m

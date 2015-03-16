@@ -11,7 +11,7 @@ First you need to clone this repository into your local machine
 
 `cd ~/dotfiles`
 
-`git clone https://github.com/fantastic001/dotfiles.git`
+`git clone https://github.com/fantastic001/dotfiles.git .`
 
 `./init.sh`
 

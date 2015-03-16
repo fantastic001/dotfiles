@@ -6,3 +6,4 @@ cp -r vim ~/.vim
 cp -r vimrc ~/.vimrc
 cp Xdefaults ~/.Xdefaults
 cp xbindkeys ~/.xbindkeys
+cp xmodmap ~/.Xmodmap 

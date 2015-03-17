@@ -19,7 +19,7 @@ floating_modifier $mod
 
 
 # kill focused window
-bindsym $mod+C kill
+bindsym $mod+c kill
 
 # change focus
 bindsym $mod+h focus left
@@ -28,22 +28,22 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
 
 # move focused window
-bindsym $mod+Shift+H move left
-bindsym $mod+Shift+J move down
-bindsym $mod+Shift+K move up
-bindsym $mod+Shift+L move right
+#bindsym $mod+Shift+H move left
+#bindsym $mod+Shift+J move down
+#bindsym $mod+Shift+K move up
+#bindsym $mod+Shift+L move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move čighr
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move čighr
 
 # split in horizontal orientation
 bindsym $mod+s split h
@@ -161,4 +161,5 @@ bindsym XF86AudioPrev exec mpc prev
 
 ipc-socket ~/.i3/i3-ipc.sock
 
-
+bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+Left workspace prev

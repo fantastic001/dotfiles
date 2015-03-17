@@ -24,3 +24,6 @@
 
 "amixer set Master toggle"
   Control + Shift + m
+
+"dmenu_run"
+  Mod1 + x

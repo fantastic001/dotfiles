@@ -258,16 +258,6 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
-    -- Prompt
-    awful.key({ modkey},            "x",     function () mypromptbox[mouse.screen]:run() end),
-
-    awful.key({ modkey,  "Control"}, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end)
     -- Menubar
     --awful.key({ modkey }, "p", function() menubar.show() end)
 )

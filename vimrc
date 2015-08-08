@@ -42,6 +42,7 @@ let g:Imap_FreezeImap=1
 
 autocmd Filetype tex setlocal nofoldenable
 autocmd Filetype python  set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+autocmd Filetype javascript  set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 "set tabstop=4
 "set expandtab

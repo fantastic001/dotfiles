@@ -27,3 +27,6 @@
 
 "dmenu_run"
   Mod1 + x
+
+"xmag -source 300x300"
+  Control + Mod1 + z

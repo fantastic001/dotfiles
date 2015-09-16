@@ -1,9 +1,6 @@
 "urxvt" 
    Mod1 + t
 
-"urxvt -e su" 
-   Mod1 + Shift + t 
-
 "urxvt -e alsamixer" 
    Mod1 + Control + m
 

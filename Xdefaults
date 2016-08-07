@@ -22,7 +22,7 @@ URxvt.font: xft:Dejavu sans mono:12
 !! teh transparency stuff
 URxvt.inheritPixmap: true
 URxvt.tintColor: white
-URxvt.shading: 100
+URxvt.shading: 20
 URxvt.transparent: true
 URxvt.depth:32
 !URxvt.background: rgba:0000/0000/0000/aazz

@@ -8,5 +8,6 @@ cp -r vimrc ~/.vimrc
 cp Xdefaults ~/.Xdefaults
 cp xbindkeys ~/.xbindkeysrc
 cp xmodmap ~/.Xmodmap 
+cp -r ranger ~/.config/ranger
 
 cp -r i3/ ~/.config/

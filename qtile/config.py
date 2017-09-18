@@ -51,7 +51,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.window.enable_floating()),
 
     # Toggle between different layouts as defined below
-    Key([mod], "space", lazy.nextlayout()),
+    Key([mod], "space", lazy.next_layout()),
     Key([mod], "c", lazy.window.kill()),
 
     Key([mod, "control"], "r", lazy.restart()),
@@ -76,8 +76,8 @@ for i in groups:
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name))
     )
 
-keys.append(Key([mod, "control"], "Right", lazy.screen.nextgroup()))
-keys.append(Key([mod, "control"], "Left", lazy.screen.prevgroup()))
+keys.append(Key([mod, "control"], "Right", lazy.screen.next_group()))
+keys.append(Key([mod, "control"], "Left", lazy.screen.prev_group()))
 
 
 dgroups_key_binder = None

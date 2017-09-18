@@ -59,7 +59,7 @@ keys = [
     #Key([mod], "x", lazy.spawncmd()),
 ]
 
-n_groups = 12
+n_groups = 9
 
 groups = []
 for g in range(1, n_groups+1):

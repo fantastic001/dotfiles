@@ -9,5 +9,6 @@ cp Xdefaults ~/.Xdefaults
 cp xbindkeys ~/.xbindkeysrc
 cp xmodmap ~/.Xmodmap 
 cp -r ranger ~/.config/ranger
+cp -r qtile ~/.config
 
 cp -r i3/ ~/.config/

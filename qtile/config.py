@@ -47,7 +47,7 @@ keys = [
         [mod, "shift"], "h",
         lazy.layout.toggle_split()
     ),
-    Key([mod], "Return", lazy.window.disable_floating()),
+    Key([mod], "f", lazy.window.disable_floating()),
     Key([mod, "shift"], "Return", lazy.window.enable_floating()),
 
     # Toggle between different layouts as defined below

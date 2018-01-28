@@ -78,6 +78,7 @@ for i in groups:
 
 keys.append(Key([mod, "control"], "Right", lazy.screen.next_group()))
 keys.append(Key([mod, "control"], "Left", lazy.screen.prev_group()))
+keys.append(Key([mod], "o", lazy.next_screen()))
 
 
 dgroups_key_binder = None

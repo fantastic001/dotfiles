@@ -64,6 +64,7 @@ n_groups = 9
 groups = []
 for g in range(1, n_groups+1):
     groups.append(Group(str(g)))
+groups[0] = Group("1", spawn="urxvt -e tmux new -A -s default")
 
 for i in groups:
     # mod1 + letter of group = switch to group
@@ -85,8 +86,8 @@ dgroups_key_binder = None
 dgroups_app_rules = []
 
 layouts = [
-    layout.Floating(border_width=5),
     layout.Max(),
+    layout.Floating(border_width=5),
     layout.TreeTab(),
     layout.Stack(num_stacks=2)
 ]

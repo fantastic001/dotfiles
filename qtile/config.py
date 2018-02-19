@@ -65,6 +65,7 @@ groups = []
 for g in range(1, n_groups+1):
     groups.append(Group(str(g)))
 groups[0] = Group("1", spawn="urxvt -e tmux new -A -s default")
+groups[1] = Group("2", spawn="chromium")
 
 for i in groups:
     # mod1 + letter of group = switch to group

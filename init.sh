@@ -11,5 +11,6 @@ cp xmodmap ~/.Xmodmap
 cp -r ranger ~/.config/ranger
 cp -r qtile ~/.config
 cp emacs ~/.emacs
+cp tmux.conf ~/.tmux.conf
 
 cp -r i3/ ~/.config/

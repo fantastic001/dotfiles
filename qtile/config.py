@@ -66,6 +66,10 @@ for g in range(1, n_groups+1):
     groups.append(Group(str(g)))
 groups[0] = Group("1", spawn="urxvt -e tmux new -A -s default")
 groups[1] = Group("2", spawn="chromium")
+groups[2] = Group("3", spawn="urxvt -e ranger /data/Documents/About\ Me")
+groups[3] = Group("4", spawn="thunderbird")
+groups[4] = Group("5", spawn="urxvt -e ssh lambda-lab.cf -t tmux new -A -s default")
+groups[5] = Group("6", spawn="urxvt -e sudo su")
 
 for i in groups:
     # mod1 + letter of group = switch to group

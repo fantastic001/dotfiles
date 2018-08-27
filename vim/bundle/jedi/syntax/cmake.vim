@@ -1,0 +1,1 @@
+/usr/share/cmake-3.11/editors/vim/syntax/cmake.vim

@@ -76,4 +76,14 @@ function Get-Ip {
 		[System.Net.Dns]::GetHostEntry([System.Net.Dns]::GetHostName()).AddressList | Select-Object IpAddressToString
 	}
 }
+
+function Get-BatteryInfo 
+{
+	gci /sys/class/power_supply/ | ? {$_ -match "BAT"} | % {@{
+		battery = $_
+		level = (gc ($_.FullName + "/charge_now"))
+		status = (gc ($_.FullName + "/status"))
+	}} 
+}
+
 Set-Alias ls LSLS

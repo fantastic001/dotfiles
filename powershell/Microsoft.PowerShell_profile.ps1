@@ -81,7 +81,7 @@ function Get-BatteryInfo
 {
 	gci /sys/class/power_supply/ | ? {$_ -match "BAT"} | % {@{
 		battery = $_
-		level = (gc ($_.FullName + "/charge_now"))
+		level = (gc ($_.FullName + "/capacity")) + "%"
 		status = (gc ($_.FullName + "/status"))
 	}} 
 }

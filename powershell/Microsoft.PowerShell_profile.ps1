@@ -14,7 +14,6 @@ function Run-At {
 
 import-module posh-git
 
-
 function Prompt {
 	Write-Host -NoNewLine ((get-date).ToString("hh:MM:ss"))
 	Write-Host -NoNewLine " | "
@@ -63,3 +62,18 @@ function Get-Displays
 {
 	(xrandr --listmonitors | % {$_.Split(" ")[-1]} ) | Select-Object -Skip 1 
 }
+
+function LSLS {gci @args | Format-Table -Property Mode,Name}
+function Get-Ip {
+	param(
+		[switch] $Public
+	)
+	if ($Public) {
+		(Invoke-RestMethod jsonip.com).ip
+	}
+	else 
+	{
+		[System.Net.Dns]::GetHostEntry([System.Net.Dns]::GetHostName()).AddressList | Select-Object IpAddressToString
+	}
+}
+Set-Alias ls LSLS

@@ -18,7 +18,7 @@ function Prompt {
 	Write-Host -NoNewLine ((get-date).ToString("hh:MM:ss"))
 	Write-Host -NoNewLine " | "
 	Write-Host -NoNewLine (hostname)
-	write-host -NoNewLine -ForegroundColor green (Get-Location)
+	write-host -NoNewLine -ForegroundColor green ($PWD.ToString().Split("/")[-1])
 	Write-Host -NoNewLine " "
 }
 

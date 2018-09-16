@@ -18,8 +18,14 @@ function Prompt {
 	Write-Host -NoNewLine ((get-date).ToString("hh:MM:ss"))
 	Write-Host -NoNewLine " | "
 	Write-Host -NoNewLine (hostname)
+	Write-Host -NoNewLine " "
 	write-host -NoNewLine -ForegroundColor green ($PWD.ToString().Split("/")[-1])
 	Write-Host -NoNewLine " "
+	if ((Get-GitStatus) -ne $null) 
+	{
+		Write-Host -NoNewLine (Get-GitStatus).Branch
+		Write-Host -NoNewLine " "
+	}
 }
 
 enum Display {

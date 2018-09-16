@@ -19,7 +19,7 @@ function Prompt {
 	Write-Host -NoNewLine " | "
 	Write-Host -NoNewLine (hostname)
 	Write-Host -NoNewLine " "
-	write-host -NoNewLine -ForegroundColor green ($PWD.ToString().Split("/")[-1])
+	write-host -NoNewLine -ForegroundColor green ((Get-Item $PWD).Name)
 	Write-Host -NoNewLine " "
 	Write-Host -NoNewLine ((Get-BatteryInfo).level)
 	Write-Host -NoNewLine " "

@@ -15,6 +15,8 @@ function Run-At {
 import-module posh-git
 
 function Prompt {
+	$Env:CWD = Get-Location
+	$Env:PWD = Get-Location
 	Write-Host -NoNewLine ((get-date).ToString("hh:MM:ss"))
 	Write-Host -NoNewLine " | "
 	Write-Host -NoNewLine (hostname)
@@ -23,11 +25,8 @@ function Prompt {
 	Write-Host -NoNewLine " "
 	Write-Host -NoNewLine ((Get-BatteryInfo).level)
 	Write-Host -NoNewLine " "
-	if ((Get-GitStatus) -ne $null) 
-	{
-		Write-Host -NoNewLine (Get-GitStatus).Branch
-		Write-Host -NoNewLine " "
-	}
+	Write-Host -NoNewLine (Get-GitStatus).Branch
+	Write-Host -NoNewLine " "
 }
 
 enum Display {

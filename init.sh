@@ -3,6 +3,7 @@
 cp xinitrc ~/.xinitrc
 rm -rf ~/.vim/ ~/.config/ranger/
 rm -rf ~/.config/powershell
+rm -rf ~/.omnisharp-server
 cp -r awesome/ ~/.config/
 cp -r vim/ ~/.vim
 cp -r vimrc ~/.vimrc
@@ -14,5 +15,6 @@ cp -r qtile ~/.config
 cp emacs ~/.emacs
 cp tmux.conf ~/.tmux.conf
 cp -r powershell ~/.config/powershell
+cp -r omnisharp-server ~/.omnisharp-server
 
 cp -r i3/ ~/.config/

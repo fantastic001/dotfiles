@@ -13,6 +13,7 @@ cp xmodmap ~/.Xmodmap
 cp -r ranger ~/.config/ranger
 cp -r qtile ~/.config
 cp emacs ~/.emacs
+cp -r emacs.d ~/.emacs.d
 cp tmux.conf ~/.tmux.conf
 cp -r powershell ~/.config/powershell
 cp -r omnisharp-server ~/.omnisharp-server

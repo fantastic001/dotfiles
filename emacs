@@ -26,3 +26,5 @@
 
 ;; load the packaged named xyz.
 (load "emacs-htmlize") ;; best not to include the ending “.el” or “.elc”
+
+(setq default-frame-alist '((font . "Dejavu Sans-14")))

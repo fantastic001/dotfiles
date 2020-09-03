@@ -113,6 +113,7 @@ screens = [
                 #widget.TextBox("default config", name="default"),
 		widget.CurrentLayout(),
                 widget.Systray(),
+                widget.Battery(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
             ],
             30,

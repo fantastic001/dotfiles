@@ -107,13 +107,18 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.LaunchBar(progs=[
+                    ("Lock", "slock", "Lock screen"),
+                    ("Remote", "urxvt -e go/bin/remote-touchpad", "Start remote control session")
+                ]),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
                 #widget.TextBox("default config", name="default"),
 		widget.CurrentLayout(),
                 widget.Systray(),
-                widget.Battery(),
+                widget.Battery(battery=0, background="003300"),
+                widget.Battery(battery=1, background="000033"),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
             ],
             30,

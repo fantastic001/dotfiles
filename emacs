@@ -30,3 +30,5 @@
 (load "emacs-htmlize") ;; best not to include the ending “.el” or “.elc”
 
 (setq default-frame-alist '((font . "Dejavu Sans mono-14")))
+(setq org-fontify-done-headline nil)
+(setq org-startup-folded t)

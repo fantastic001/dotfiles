@@ -19,3 +19,5 @@ cp -r powershell ~/.config/powershell
 cp -r omnisharp-server ~/.omnisharp-server
 
 cp -r i3/ ~/.config/
+mkdir -p ~/.local/bin
+cp commander.sh ~/.local/bin

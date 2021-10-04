@@ -1,0 +1,24 @@
+{
+	"states": {
+		  "READY": {
+			   "READING": "Start reading"
+		  },
+		  "READING": {
+			     "DONE": "Finish reading",
+			     "READY": "Bring back to to-read state"
+		  },
+		  "DONE": {
+			"READING": "start reading again"
+		  }
+	},
+	"default_state": "READY",
+	"storage_location": "/data/Documents/Library/Papers",
+	"fields": {
+		  "Computer Science": {
+			    "default": "Theory",
+			    "categories": ["Algorithms and Data Structures","Theory", "Operating Systems", "Networking and distributed systems", "Compilers and language design"]
+		  }
+	},
+	"default_field": "Computer Science"
+}
+

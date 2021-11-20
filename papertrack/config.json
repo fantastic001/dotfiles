@@ -16,7 +16,19 @@
 	"fields": {
 		  "Computer Science": {
 			    "default": "Theory",
-			    "categories": ["Algorithms and Data Structures","Theory", "Operating Systems", "Networking and distributed systems", "Compilers and language design"]
+			    "categories": [
+			    	"Algorithms and Data Structures",
+				"Theory", 
+				"Operating Systems", 
+				"Networking and distributed systems", 
+				"Compilers and language design",
+				"Computer graphics",
+				"Machine learning and pattern recognition"
+				]
+		  },
+		  "Mathematics": {
+			"default": "Algebra",
+			"categories": ["Algebra", "Finance", "Calculus", "Applied Mathematics"]
 		  }
 	},
 	"default_field": "Computer Science"

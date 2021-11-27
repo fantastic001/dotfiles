@@ -25,3 +25,4 @@ cp -r papertrack/config.json ~/.papertrack/config.json
 cp -r i3/ ~/.config/
 mkdir -p ~/.local/bin
 cp commander.sh ~/.local/bin
+xbindkeys --poll-rc

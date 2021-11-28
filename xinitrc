@@ -1,2 +1,2 @@
-
-/home/bin/start-x
+xbindkeys
+qtile start

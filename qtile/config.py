@@ -7,10 +7,8 @@ from libqtile import hook
 from libqtile.config import Click, Drag
 
 bashCommand = 'ls /sys/class/power_supply | wc -l'
-process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-returnValue, error = process.communicate()
-numberOfBatteries = returnValue - 1
-
+ret = subprocess.run(bashCommand, capture_output=True, shell=True)
+numberOfBatteries = int(ret.stdout.decode()) - 1
 
 mod = "mod1"
 
@@ -111,27 +109,7 @@ widget_defaults = dict(
     padding=3,
 )
 
-#listOfBarElements = [
-#                widget.LaunchBar(progs=[
-#                    ("Lock", "slock", "Lock screen"),
-#                    ("Remote", "urxvt -e go/bin/remote-touchpad", "Start remote control session")
-#                ]),
-#                widget.GroupBox(),
-#                widget.Prompt(),
-#                widget.WindowName(),
-#                #widget.TextBox("default config", name="default"),
-#		widget.CurrentLayout(),
-#                widget.Systray(),
-#                widget.Battery(battery=0, background="003300"),
-#                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-#                ]
-#if (numberOfBatteries == 2):
-#    listOfBarElements.append(widget.Battery(battery=1, background="000033"),)
-
-
-screens = [
-    Screen(
-        top=bar.Bar([
+listOfBarElements = [
                 widget.LaunchBar(progs=[
                     ("Lock", "slock", "Lock screen"),
                     ("Remote", "urxvt -e go/bin/remote-touchpad", "Start remote control session")
@@ -144,7 +122,15 @@ screens = [
                 widget.Systray(),
                 widget.Battery(battery=0, background="003300"),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                ],
+                ]
+if (numberOfBatteries == 2):
+    listOfBarElements.insert(listOfBarElements.__len__() - 1, widget.Battery(battery=1, background="000033"),)
+
+
+screens = [
+    Screen(
+        top=bar.Bar(
+            listOfBarElements,
             30,
         ),
     ),

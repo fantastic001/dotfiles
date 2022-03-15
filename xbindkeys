@@ -27,3 +27,12 @@
 
 "xmag -source 300x300"
   Control + Mod1 + z
+
+"playerctl play-pause"
+   Mod1 + F7
+
+"playerctl next"
+   Mod1 + F8
+
+"playerctl previous"
+   Mod1 + F6

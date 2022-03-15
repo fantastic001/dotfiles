@@ -18,3 +18,10 @@ First you need to clone this repository into your local machine
 and you are done!
 
 
+Additional tools
+------------
+
+Keybiding for xmag has been provided. To use it, install _xorg-xmag_.
+
+Keybidings for MPRIS clients has been provided (play/pause, next, previous). Install _playerctl_ to use it. 
+

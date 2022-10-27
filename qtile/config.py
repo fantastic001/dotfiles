@@ -6,9 +6,7 @@ from libqtile import layout, bar, widget
 from libqtile import hook
 from libqtile.config import Click, Drag
 
-bashCommand = 'ls /sys/class/power_supply | wc -l'
-ret = subprocess.run(bashCommand, capture_output=True, shell=True)
-numberOfBatteries = int(ret.stdout.decode()) - 1
+numberOfBatteries = sum(map(lambda x: x.startswith('BAT'), os.listdir('/sys/class/power_supply')))
 
 mod = "mod1"
 
@@ -123,9 +121,9 @@ listOfBarElements = [
                 widget.Battery(battery=0, background="003300"),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
                 ]
-if (numberOfBatteries == 2):
-    listOfBarElements.insert(listOfBarElements.__len__() - 1, widget.Battery(battery=1, background="000033"),)
 
+for x in range(1, numberOfBatteries):
+    listOfBarElements.insert(len(listOfBarElements) - 1, widget.Battery(battery=1, background="000033"),)
 
 screens = [
     Screen(

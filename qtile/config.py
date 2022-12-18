@@ -1,8 +1,12 @@
+import subprocess
+
 from libqtile.config import Key, Screen, Group
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
 from libqtile import hook
 from libqtile.config import Click, Drag
+
+numberOfBatteries = sum(map(lambda x: x.startswith('BAT'), os.listdir('/sys/class/power_supply')))
 
 mod = "mod1"
 
@@ -103,10 +107,7 @@ widget_defaults = dict(
     padding=3,
 )
 
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
+listOfBarElements = [
                 widget.LaunchBar(progs=[
                     ("Lock", "slock", "Lock screen"),
                     ("Remote", "urxvt -e go/bin/remote-touchpad", "Start remote control session")
@@ -118,9 +119,16 @@ screens = [
 		widget.CurrentLayout(),
                 widget.Systray(),
                 widget.Battery(battery=0, background="003300"),
-                widget.Battery(battery=1, background="000033"),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-            ],
+                ]
+
+for x in range(1, numberOfBatteries):
+    listOfBarElements.insert(len(listOfBarElements) - 1, widget.Battery(battery=1, background="000033"),)
+
+screens = [
+    Screen(
+        top=bar.Bar(
+            listOfBarElements,
             30,
         ),
     ),

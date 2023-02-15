@@ -1,5 +1,5 @@
 function get_full_path
-    if test $LAST_CHECKED_PATH != (dirs)
+    if test "$LAST_CHECKED_PATH" != (dirs)
         set list_of_dirs (string split / (dirs))
         set visited ''
         for directory in $list_of_dirs

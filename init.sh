@@ -38,3 +38,10 @@ cp -r i3/ ~/.config/
 mkdir -p ~/.local/bin
 cp commander.sh ~/.local/bin
 xbindkeys --poll-rc
+
+### Copy fish configuration (or replace if one exists)
+
+if [[ ! -d ~/.config/fish ]]; then
+    mkdir ~/.config/fish
+fi
+cp -r fish ~/.config

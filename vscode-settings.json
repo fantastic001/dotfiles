@@ -1,0 +1,105 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "editor.cursorStyle": "block",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "cmake.configureOnOpen": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "workbench.colorTheme": "Default Dark+",
+    "git.confirmSync": false,
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "cSpell.language": "en,sr-Latn",
+    "window.zoomLevel": 2,
+    "workbench.startupEditor": "none",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.profiles.osx": {
+        "fish": {
+            "path": "/opt/homebrew/bin/fish"
+        }
+    },
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.shellIntegration.environmentReporting": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+    "github.copilot.chat.reviewSelection.instructions": [
+        {
+            "text": "Ensure that all inputs are validated for every functions."
+        }, 
+        {
+            "text": "Ensure that every function call which has side effects has proper error handling."
+        }
+    ],
+    "github.copilot.chat.codeGeneration.instructions": [
+        {
+            "text": "Ensure that all inputs are validated for every functions."
+        }, 
+        {
+            "text": "Ensure that every function call which has side effects has proper error handling."
+        }
+    ],
+    "python.analysis.typeCheckingMode": "standard",
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/? ",
+    "vim.useSystemClipboard": true,
+    "editor.lineNumbers": "on",
+    "vim.vimrc.enable": true,
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "f"],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": {
+                        "text": "${file}"
+                    }
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "r"],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": {
+                        "text": "python3 ${file}"
+                    }
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "<leader>"],
+            "after": ["<leader>", "<leader>"]
+        }
+    ],
+    "vim.shell": "/bin/bash",
+    "editor.wordWrap": "bounded",
+    "editor.wrappingIndent": "indent",
+    "editor.wrappingStrategy": "advanced"
+
+}

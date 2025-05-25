@@ -44,3 +44,19 @@ xbindkeys --poll-rc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 cp zshrc ~/.zshrc 
+
+
+is_osx() {
+    if [ "$(uname)" = "Darwin" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+if is_osx; then 
+    cp vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
+
+else 
+    cp vscode-settings.json ~/.config/Code/User/settings.json
+fi 

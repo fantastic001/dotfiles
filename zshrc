@@ -74,7 +74,7 @@ ENABLE_CORRECTION="true"
 PYTHON_AUTO_VRUN=true
 PYTHON_VENV_NAMES=(env venv .venv)
 
-plugins=(git copybuf copypath dotenv python)
+plugins=(git copybuffer copypath dotenv python)
 
 
 source $ZSH/oh-my-zsh.sh

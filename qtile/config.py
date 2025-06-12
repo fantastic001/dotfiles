@@ -1,4 +1,5 @@
 import subprocess
+import os
 
 from libqtile.config import Key, Screen, Group
 

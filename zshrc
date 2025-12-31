@@ -73,6 +73,7 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 PYTHON_AUTO_VRUN=true
 PYTHON_VENV_NAMES=(env venv .venv)
+PYTHON_VENV_NAME="env"
 
 plugins=(git copybuffer copypath dotenv python)
 

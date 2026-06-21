@@ -74,3 +74,47 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+function! ToggleContextHeaderPrefix()
+	let l:lnum = line('.')
+	let l:txt = getline(l:lnum)
+
+	if l:txt =~ '^\s*X ====='
+		call setline(l:lnum, substitute(l:txt, '^\(\s*\)X \(=====\)', '\1\2', ''))
+	elseif l:txt =~ '^\s*====='
+		call setline(l:lnum, substitute(l:txt, '^\(\s*\)\(=====\)', '\1X \2', ''))
+	endif
+endfunction
+
+function! JumpToNextContextHeader()
+	let l:lnum = line('.')
+	let l:next = search('^\s*\(X \)\?=====', 'W')
+	if l:next > 0
+		execute l:next
+	endif
+endfunction
+function! JumpToPrevContextHeader()
+	let l:lnum = line('.')
+	let l:prev = search('^\s*\(X \)\?=====', 'bW')
+	if l:prev > 0
+		execute l:prev
+	endif
+endfunction
+
+command! ToggleContextHeader call ToggleContextHeaderPrefix()
+
+autocmd BufRead,BufNewFile context let &l:foldmethod = 'expr' | let &l:foldexpr = "getline(v:lnum)=~'^\\(X \\)\\?====='?'>1':'='"
+autocmd BufRead,BufNewFile context syntax match ContextDone /\[DONE\]/ | highlight default link ContextDone DiffAdd
+
+
+
+" lines starting with X ===== should have forced green background (whole line)
+autocmd BufRead,BufNewFile context syntax match ContextHeaderGreen /^X =====.*/ | highlight! ContextHeaderGreen cterm=NONE ctermfg=White ctermbg=Magenta guifg=#000000 guibg=#00aa00 gui=NONE
+" lines starting with ===== should have forced blue background (whole line)
+autocmd BufRead,BufNewFile context syntax match ContextHeaderBlue /^=====.*/ | highlight! ContextHeaderBlue cterm=NONE ctermfg=White ctermbg=Blue gui=NONE guifg=#ffffff guibg=#005f87
+autocmd BufRead,BufNewFile context nnoremap <buffer> <silent> <leader>x :call ToggleContextHeaderPrefix()<CR>
+autocmd BufRead,BufNewFile context nnoremap <buffer> <silent> <leader>n :call JumpToNextContextHeader()<CR>
+autocmd BufRead,BufNewFile context nnoremap <buffer> <silent> <leader>p :call JumpToPrevContextHeader()<CR>
+
+" Unfold all by default
+autocmd BufRead,BufNewFile context normal! zR

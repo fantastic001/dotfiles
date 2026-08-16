@@ -105,6 +105,7 @@ command! ToggleContextHeader call ToggleContextHeaderPrefix()
 
 autocmd BufRead,BufNewFile context let &l:foldmethod = 'expr' | let &l:foldexpr = "getline(v:lnum)=~'^\\(X \\)\\?====='?'>1':'='"
 autocmd BufRead,BufNewFile context syntax match ContextDone /\[DONE\]/ | highlight default link ContextDone DiffAdd
+autocmd BufRead,BufNewFile context syntax match ContextDone /\[X\]/ | highlight default link ContextDone DiffAdd
 
 
 

@@ -111,3 +111,11 @@ source $ZSH/oh-my-zsh.sh
 
 
 export PATH="$HOME/.local/bin:$PATH"
+
+if which zoxide >/dev/null 2>&1; then 
+    eval "$(zoxide init zsh)"
+fi
+
+if which atuin >/dev/null 2>&1; then 
+    eval "$(atuin init zsh)"
+fi

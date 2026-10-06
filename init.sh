@@ -60,3 +60,6 @@ if is_osx; then
 else 
     cp vscode-settings.json ~/.config/Code/User/settings.json
 fi 
+
+mkdir -p ~/.config/atuin
+cp atuin.toml ~/.config/atuin/config.toml 

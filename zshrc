@@ -159,3 +159,11 @@ agv() {
   done
 }
 
+
+fzfe() {
+  F=/tmp/fzf-$RANDOM-$(date +%s)
+  fzf -m > $F
+  vim $F
+  zsh $F
+  rm $F
+}

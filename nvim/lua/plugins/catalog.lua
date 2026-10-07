@@ -8,4 +8,5 @@ return {
     "https://github.com/mfussenegger/nvim-jdtls",
     "https://github.com/Civitasv/cmake-tools.nvim",
     "https://github.com/mechatroner/rainbow_csv",
+    "https://github.com/ray-x/lsp_signature.nvim",
 }

@@ -5,4 +5,5 @@ return {
     { name = "debugging", module = "debugging.dap" },
     { name = "java", module = "java.jdtls" },
     { name = "cmake", module = "cmake.tools" },
+    { name = "signature", module = "language_servers.signature_help" },
 }

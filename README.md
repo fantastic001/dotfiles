@@ -94,5 +94,7 @@ test, `<leader>jo` organize imports, `<leader>ju` reload Maven/Gradle project.
 - `NVIM_JAVA_HOME=path` - JDK used to run jdtls (default `JAVA_HOME`, then
   Homebrew openjdk)
 - `NVIM_SPELL=off`, `NVIM_SPELL_LANGUAGES=en,sr` - spell checking
+- `NVIM_COMPLETION_MATCHING=fuzzy|prefix` - fzf-style fuzzy completion
+  matching and ranking (default `fuzzy`)
 - To add a feature: add a module with `configure()` and an entry in
   `nvim/lua/features/catalog.lua`

@@ -1,5 +1,6 @@
+local completion_options = require("language_servers.completion_options")
+
 local COMPLETION_METHOD = "textDocument/completion"
-local COMPLETE_OPTIONS = { "menu", "menuone", "noinsert", "popup" }
 
 local M = {}
 
@@ -41,7 +42,7 @@ local function on_attach(event)
 end
 
 function M.register_buffer_setup()
-    vim.opt.completeopt = COMPLETE_OPTIONS
+    vim.opt.completeopt = completion_options.resolve()
     vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("language_servers_attach", {}),
         callback = on_attach,

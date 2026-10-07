@@ -181,3 +181,8 @@ fzfs() {
   cat $F | $CLIP
   rm $F
 }
+
+
+if command -v nvim 2>&1 >/dev/null; then 
+    alias vim=nvim
+fi

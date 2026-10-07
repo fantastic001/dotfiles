@@ -185,4 +185,61 @@ fzfs() {
 
 if command -v nvim 2>&1 >/dev/null; then 
     alias vim=nvim
+    alias old='nvim -c "browse oldfiles"'
 fi
+
+if command -v fzf 2>&1 >/dev/null; then 
+    list_project_files() {
+        git ls-files --exclude-standard --cached --others 2>/dev/null
+    }
+    alias f="list_project_files | fzf"
+    alias e="list_project_files | fzf | xargs -n 1 $EDITOR"
+    # Initialize the native Zsh completion system
+    autoload -U compinit && compinit
+
+    # Load fzf-tab (MUST be loaded after compinit)
+    source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab/fzf-tab.plugin.zsh
+
+    # 1. First Tab: complete the longest common prefix string
+    # 2. Second Tab: trigger the fzf menu for files/directories
+    setopt list_ambiguous
+    zstyle ':completion:*:*:*:*:*' menu no
+
+    _complete_nested_project_files() {
+        local -a project_files
+        project_files=(${(M)${(f)"$(list_project_files)"}:#*/*})
+        if (( ${#project_files} > 0 )); then
+            compadd -M 'l:|=* r:|=*' -f -- "${project_files[@]}"
+        else
+            return 1
+        fi
+    }
+
+    _is_filtered_files_request() {
+        (( ${@[(I)-/]} || ${@[(I)-g*]} ))
+    }
+
+    autoload -Uz +X _files
+    functions[_local_files]="${functions[_files]}"
+
+    _files() {
+        local completion_status=1
+        _local_files "$@" && completion_status=0
+        if ! _is_filtered_files_request "$@"; then
+            _complete_nested_project_files && completion_status=0
+        else
+            :
+        fi
+        return "${completion_status}"
+    }
+
+    _complete_commands_and_files() {
+        local completion_status=1
+        _autocd "$@" && completion_status=0
+        _files && completion_status=0
+        return "${completion_status}"
+    }
+    compdef _complete_commands_and_files -command-
+
+fi
+

@@ -93,5 +93,31 @@ install_python_language_server() {
     fi
 }
 
+install_serbian_spell_file() {
+    local spell_directory="${HOME}/.local/share/nvim/site/spell"
+    local spell_file="${spell_directory}/sr.utf-8.spl"
+    local spell_url="https://ftp.nluug.nl/pub/vim/runtime/spell/sr.utf-8.spl"
+    if [[ -f "${spell_file}" ]]; then
+        echo "Serbian spell file already installed"
+    else
+        mkdir -p "${spell_directory}"
+        curl -fsSL -o "${spell_file}" "${spell_url}" \
+            || echo "Could not download Serbian spell file"
+    fi
+}
+
+install_nvim_plugins_and_tools() {
+    if has_command nvim; then
+        NVIM_TOOLS_AUTOINSTALL=off nvim --headless \
+            -c 'lua require("tools.mason").install_missing_and_wait()' \
+            -c 'qall' \
+            || echo "Could not install Neovim plugins and tools"
+    else
+        echo "nvim not found, skipping plugin and tool installation"
+    fi
+}
+
 install_nvim_config
 install_python_language_server
+install_serbian_spell_file
+install_nvim_plugins_and_tools

@@ -54,4 +54,45 @@ Shared Vim/Neovim settings live in `vimrc.common` (installed to
 - `NVIM_SHARED_VIMRC=path` - use a different shared settings file
 - `NVIM_LSP=off` - disable LSP
 - `NVIM_LSP_PYTHON=pylsp,pyright` - override server preference order
-- To add a language: add `nvim/lsp/<server>.lua` and an entry in `catalog.lua`
+- To add a language: add an entry in `catalog.lua` (server configs come from
+  nvim-lspconfig); put overrides in `nvim/after/lsp/<server>.lua`
+
+## Plugins and tools (VS Code extension equivalents)
+
+Plugins are installed by the built-in `vim.pack` from
+`nvim/lua/plugins/catalog.lua`. Language servers and debuggers are installed
+by Mason from `nvim/lua/tools/catalog.lua` (`:ToolsInstall`, or automatically
+on startup).
+
+| VS Code extension | Neovim equivalent |
+| --- | --- |
+| Java pack, maven, gradle, dependency | jdtls + nvim-jdtls |
+| java-debug, java-test | nvim-dap + java-debug-adapter, java-test bundles |
+| rust-analyzer | rust-analyzer |
+| cpptools pack | clangd + codelldb (nvim-dap) |
+| cmake, cmake-tools | neocmakelsp + cmake-tools.nvim (`:CMakeBuild`, ...) |
+| makefile-tools | built-in `:make` |
+| vscode-xml, xml-complete | lemminx |
+| vscode-yaml | yaml-language-server |
+| docker | dockerfile + docker-compose language servers |
+| github-actions | gh-actions-language-server |
+| code-spell-checker (+ Serbian) | built-in spell, `spelllang=en,sr` |
+| rainbow-csv, datawrangler | rainbow_csv (RBQL queries via `:Select`) |
+| java-upgrade, migrate-java-to-azure | no equivalent |
+
+Keys: `F5` continue, `F10`/`F11`/`F12` step over/into/out, `<leader>b`
+breakpoint, `<leader>du` debug UI, `<leader>dr` REPL, `<leader>dq` stop.
+Java: `<leader>tc` test class, `<leader>tm` test method, `<leader>tp` pick
+test, `<leader>jo` organize imports, `<leader>ju` reload Maven/Gradle project.
+
+- `NVIM_PLUGINS=off` - do not load plugins or plugin features
+- `NVIM_FEATURES_DISABLED=java,cmake` - disable features listed in
+  `nvim/lua/features/catalog.lua` (filetypes, spelling, tools, debugging,
+  java, cmake)
+- `NVIM_TOOLS_AUTOINSTALL=off` - do not install missing tools on startup
+- `NVIM_TOOLS_INSTALL_TIMEOUT_MS=600000` - headless install timeout
+- `NVIM_JAVA_HOME=path` - JDK used to run jdtls (default `JAVA_HOME`, then
+  Homebrew openjdk)
+- `NVIM_SPELL=off`, `NVIM_SPELL_LANGUAGES=en,sr` - spell checking
+- To add a feature: add a module with `configure()` and an entry in
+  `nvim/lua/features/catalog.lua`

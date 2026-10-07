@@ -130,8 +130,8 @@ agv() {
   local selections
   selections=$(ag --vimgrep --color "${query}" 2>/dev/null | fzf \
     --multi \
+    --tac \
     --delimiter ':' \
-    --nth 3.. \
     --preview '
       file=$(echo {} | cut -d: -f1)
       line=$(echo {} | cut -d: -f2)

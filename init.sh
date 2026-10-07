@@ -19,6 +19,7 @@ rm -rf ~/.config/powershell
 cp -r awesome/ ~/.config/
 cp -r vim/ ~/.vim
 cp -r vimrc ~/.vimrc
+cp vimrc.common ~/.vimrc.common
 cp Xdefaults ~/.Xdefaults
 cp xbindkeys ~/.xbindkeysrc
 cp xmodmap ~/.Xmodmap 

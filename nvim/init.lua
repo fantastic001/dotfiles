@@ -1,3 +1,6 @@
+require("editor.shared_vim_settings").source()
+require("editor.indentation").configure()
+require("editor.cursor").configure()
 require("language_servers.diagnostics").configure()
 require("language_servers.attach").register_buffer_setup()
 require("language_servers.registry").enable_available_servers()

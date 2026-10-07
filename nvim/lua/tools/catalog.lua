@@ -10,4 +10,5 @@ return {
     "dockerfile-language-server",
     "docker-compose-language-service",
     "gh-actions-language-server",
+    "tree-sitter-cli",
 }

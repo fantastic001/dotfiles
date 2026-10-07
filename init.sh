@@ -110,6 +110,7 @@ install_nvim_plugins_and_tools() {
     if has_command nvim; then
         NVIM_TOOLS_AUTOINSTALL=off nvim --headless \
             -c 'lua require("tools.mason").install_missing_and_wait()' \
+            -c 'lua require("syntax.treesitter").install_parsers_and_wait()' \
             -c 'qall' \
             || echo "Could not install Neovim plugins and tools"
     else

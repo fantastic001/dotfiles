@@ -6,4 +6,6 @@ return {
     { name = "java", module = "java.jdtls" },
     { name = "cmake", module = "cmake.tools" },
     { name = "signature", module = "language_servers.signature_help" },
+    { name = "colors", module = "editor.colorscheme" },
+    { name = "syntax", module = "syntax.treesitter" },
 }

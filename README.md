@@ -94,6 +94,10 @@ test, `<leader>jo` organize imports, `<leader>ju` reload Maven/Gradle project.
 - `NVIM_JAVA_HOME=path` - JDK used to run jdtls (default `JAVA_HOME`, then
   Homebrew openjdk)
 - `NVIM_SPELL=off`, `NVIM_SPELL_LANGUAGES=en,sr` - spell checking
+- `NVIM_COLORSCHEME=vscode`, `NVIM_BACKGROUND=dark|light` - colors (VS Code
+  Dark+/Light+ by default); token colors come from tree-sitter parsers listed
+  in `nvim/lua/syntax/parsers.lua`
+- `NVIM_PARSERS_INSTALL_TIMEOUT_MS=600000` - headless parser install timeout
 - `NVIM_COMPLETION_MATCHING=fuzzy|prefix` - fzf-style fuzzy completion
   matching and ranking (default `fuzzy`)
 - To add a feature: add a module with `configure()` and an entry in

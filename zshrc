@@ -119,3 +119,43 @@ fi
 if which atuin >/dev/null 2>&1; then 
     eval "$(atuin init zsh)"
 fi
+
+agv() {
+  # 1. Check if an argument was passed, otherwise use an empty string
+  local query="${1:-}"
+
+  # 2. Run ag and pipe into fzf with multi-selection and context preview
+  #    ag outputs formatted as: "filename:linenumber:content"
+  local selections
+  selections=$(ag --vimgrep --color "${query}" 2>/dev/null | fzf \
+    --multi \
+    --delimiter ':' \
+    --nth 3.. \
+    --preview '
+      file=$(echo {} | cut -d: -f1)
+      line=$(echo {} | cut -d: -f2)
+      # Bat provides excellent code previews, cat/head/tail acts as fallback
+      if command -v bat &> /dev/null; then
+        bat --style=numbers --color=always --highlight-line "$line" --line-range $((line > 10 ? line - 10 : 1)):$((line + 10)) "$file"
+      else
+        tail -n +$((line > 10 ? line - 10 : 1)) "$file" | head -n 21
+      fi
+    ' \
+    --preview-window='right:60%:wrap')
+
+  # If nothing was selected, exit gracefully
+  [ -z "$selections" ] && return 0
+
+  # 3. Process each selected line and open in vim sequentially (separate processes)
+  echo "$selections" | while IFS= read -r selection; do
+    local file
+    local line
+    file=$(echo "$selection" | cut -d: -f1)
+    line=$(echo "$selection" | cut -d: -f2)
+
+    # Open Vim explicitly mapped to the interactive terminal device (/dev/tty)
+    # This prevents Vim from hijacking the standard input stream loop.
+    vim "+${line}" "$file" </dev/tty
+  done
+}
+

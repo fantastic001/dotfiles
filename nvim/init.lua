@@ -1,6 +1,7 @@
 require("editor.shared_vim_settings").source()
 require("editor.indentation").configure()
 require("editor.cursor").configure()
+require("editor.terminal_keys").configure()
 require("features.registry").configure_enabled(
     require("plugins.installer").install_all()
 )

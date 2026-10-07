@@ -62,4 +62,35 @@ else
 fi 
 
 mkdir -p ~/.config/atuin
-cp atuin.toml ~/.config/atuin/config.toml 
+cp atuin.toml ~/.config/atuin/config.toml
+
+
+has_command() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+install_nvim_config() {
+    mkdir -p ~/.config
+    rm -rf ~/.config/nvim
+    cp -r nvim ~/.config/nvim
+}
+
+install_python_language_server() {
+    if has_command pyright-langserver || has_command pylsp; then
+        echo "Python language server already installed"
+    elif has_command brew; then
+        brew install pyright
+    elif has_command npm; then
+        npm install -g pyright
+    elif has_command pipx; then
+        pipx install python-lsp-server
+    elif has_command python3; then
+        python3 -m pip install --user python-lsp-server \
+            || echo "Could not install python-lsp-server with pip"
+    else
+        echo "No package manager found to install a Python language server"
+    fi
+}
+
+install_nvim_config
+install_python_language_server

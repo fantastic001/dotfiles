@@ -87,12 +87,13 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+# Preferred editor: nvim when installed, otherwise vim
+if command -v nvim >/dev/null 2>&1; then
+  export EDITOR='nvim'
+else
+  export EDITOR='vim'
+fi
+export VISUAL="$EDITOR"
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -146,16 +147,16 @@ agv() {
   # If nothing was selected, exit gracefully
   [ -z "$selections" ] && return 0
 
-  # 3. Process each selected line and open in vim sequentially (separate processes)
+  # 3. Process each selected line and open in $EDITOR sequentially (separate processes)
   echo "$selections" | while IFS= read -r selection; do
     local file
     local line
     file=$(echo "$selection" | cut -d: -f1)
     line=$(echo "$selection" | cut -d: -f2)
 
-    # Open Vim explicitly mapped to the interactive terminal device (/dev/tty)
-    # This prevents Vim from hijacking the standard input stream loop.
-    vim "+${line}" "$file" </dev/tty
+    # Open the editor explicitly mapped to the interactive terminal device (/dev/tty)
+    # This prevents the editor from hijacking the standard input stream loop.
+    "${EDITOR:-vim}" "+${line}" "$file" </dev/tty
   done
 }
 
@@ -163,7 +164,7 @@ agv() {
 fzfe() {
   F=/tmp/fzf-$RANDOM-$(date +%s)
   fzf -m > $F
-  vim $F
+  "${EDITOR:-vim}" "$F"
   zsh $F
   rm $F
 }
@@ -171,7 +172,7 @@ fzfe() {
 fzfs() {
   F=/tmp/fzf-$RANDOM-$(date +%s)
   fzf -m > $F
-  vim $F
+  "${EDITOR:-vim}" "$F"
   if command -v pbcopy >/dev/null 2>&1; then 
     CLIP=pbcopy
   else

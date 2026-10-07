@@ -40,3 +40,13 @@ Keybidings for MPRIS clients has been provided (play/pause, next, previous). Ins
 - avuin - better shell history
 - ag - search in files pattern 
 - agv - visual ag
+
+# Neovim
+
+`init.sh` copies `nvim/` to `~/.config/nvim` and installs a Python language
+server (pyright, falling back to python-lsp-server). Neovim's built-in LSP
+uses the first installed server listed in `nvim/lua/language_servers/catalog.lua`.
+
+- `NVIM_LSP=off` - disable LSP
+- `NVIM_LSP_PYTHON=pylsp,pyright` - override server preference order
+- To add a language: add `nvim/lsp/<server>.lua` and an entry in `catalog.lua`

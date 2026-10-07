@@ -167,3 +167,16 @@ fzfe() {
   zsh $F
   rm $F
 }
+
+fzfs() {
+  F=/tmp/fzf-$RANDOM-$(date +%s)
+  fzf -m > $F
+  vim $F
+  if command -v pbcopy >/dev/null 2>&1; then 
+    CLIP=pbcopy
+  else
+    CLIP="xclip -sel clip"
+  fi
+  cat $F | $CLIP
+  rm $F
+}

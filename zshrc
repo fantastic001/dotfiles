@@ -87,8 +87,13 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+has_command() {
+  command -v "$1" >/dev/null 2>&1
+  return $?
+}
+
 # Preferred editor: nvim when installed, otherwise vim
-if command -v nvim >/dev/null 2>&1; then
+if has_command nvim; then
   export EDITOR='nvim'
 else
   export EDITOR='vim'
@@ -173,7 +178,7 @@ fzfs() {
   F=/tmp/fzf-$RANDOM-$(date +%s)
   fzf -m > $F
   "${EDITOR:-vim}" "$F"
-  if command -v pbcopy >/dev/null 2>&1; then 
+  if has_command pbcopy; then 
     CLIP=pbcopy
   else
     CLIP="xclip -sel clip"
@@ -183,12 +188,12 @@ fzfs() {
 }
 
 
-if command -v nvim 2>&1 >/dev/null; then 
+if has_command nvim; then 
     alias vim=nvim
     alias old='nvim -c "browse oldfiles"'
 fi
 
-if command -v fzf 2>&1 >/dev/null; then 
+if has_command fzf; then
     list_project_files() {
         git ls-files --exclude-standard --cached --others 2>/dev/null
     }

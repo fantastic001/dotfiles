@@ -224,8 +224,12 @@ if has_command fzf; then
         (( ${@[(I)-/]} || ${@[(I)-g*]} ))
     }
 
-    autoload -Uz +X _files
-    functions[_local_files]="${functions[_files]}"
+    if (( ! ${+functions[_local_files]} )); then
+        autoload -Uz +X _files
+        functions[_local_files]="${functions[_files]}"
+    else
+        :
+    fi
 
     _files() {
         local completion_status=1

@@ -11,4 +11,5 @@ return {
     "https://github.com/ray-x/lsp_signature.nvim",
     "https://github.com/nvim-treesitter/nvim-treesitter",
     "https://github.com/Mofiqul/vscode.nvim",
+    "https://github.com/github/copilot.vim",
 }

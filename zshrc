@@ -248,3 +248,8 @@ if has_command fzf; then
 
 fi
 
+
+if has_command claude; then
+    # Set an alias for the Claude command with a specific permission mode
+    alias claudew="claude --permission-mode acceptEdits"
+fi

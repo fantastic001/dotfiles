@@ -52,6 +52,13 @@ Shared Vim/Neovim settings live in `vimrc.common` (installed to
 
 - `NVIM_INDENT_WIDTH=2` - change indent width (default 4 spaces)
 - `NVIM_SHARED_VIMRC=path` - use a different shared settings file
+- `NVIM_CLIPBOARD=off` - keep yank/paste separate from the system clipboard
+- `NVIM_CLIPBOARD_PROVIDER=auto|native|osc52` - `native` uses `pbcopy`
+  (macOS) or `wl-copy`/`xclip`/`xsel` (Linux, one must be installed);
+  `osc52` copies through the terminal and is picked automatically over SSH
+  or when no native tool is usable (paste with the terminal's paste key)
+- `NVIM_CLIPBOARD_REGISTERS=unnamedplus,unnamed` - registers synced with the
+  system clipboard (default `unnamedplus`)
 - `NVIM_LSP=off` - disable LSP
 - `NVIM_LSP_PYTHON=pylsp,pyright` - override server preference order
 - To add a language: add an entry in `catalog.lua` (server configs come from
